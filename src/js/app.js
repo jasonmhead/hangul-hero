@@ -316,6 +316,7 @@ $(function() {
             
             
             $square.addClass('s-'+keypressed);
+            $square.addClass('s-key-up');
         }
 
     });
