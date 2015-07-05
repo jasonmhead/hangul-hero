@@ -36,6 +36,7 @@ $(function() {
     var difficulty = 1;
     var started = false;
     var maxLife = 5000;
+    maxLife = 5000000000000; // test line
     var currentLife = maxLife;
     // array of objects: {delay, started, interval}
     var scheduledSpawns = [];
