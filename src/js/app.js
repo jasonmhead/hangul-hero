@@ -278,7 +278,7 @@ $(function() {
         }
 
         if (e.keyCode >= 60 && e.keyCode <= 90 && started !== 'paused' && started !== 'restart') {
-            // arrow keys pressed
+            // hangul keys pressed
 
             e.preventDefault();
             if (started === false) {
@@ -291,6 +291,7 @@ $(function() {
             }
             
             keypressed = arr_keycodes[e.keyCode];
+            console.log(keypressed);
             
             /*
             switch (e.keyCode) {
