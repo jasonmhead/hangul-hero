@@ -2,9 +2,9 @@
 
 $(function() {
     var arr = ['ㅁ','ㄴ','ㅇ','ㄹ','ㅎ','ㅗ','ㅓ','ㅏ','ㅣ'];
-    var arr_keycodes_mobile = {'ㅁ':65,'ㄴ':83,'ㅇ':68,'ㄹ':70,'ㅎ':71,'ㅗ':72,'ㅓ':74,'ㅏ':75,'ㅣ':76};
-    var arr_keycodes = {65:'ㅁ',83:'ㄴ',68:'ㅇ',70:'ㄹ',71:'ㅎ',72:'ㅗ',74:'ㅓ',75:'ㅏ',76:'ㅣ'};
-    var classes = arr.join(" ");
+    var arrKeycodesMobile = {'ㅁ':65,'ㄴ':83,'ㅇ':68,'ㄹ':70,'ㅎ':71,'ㅗ':72,'ㅓ':74,'ㅏ':75,'ㅣ':76};
+    var arrKeycodes = {65:'ㅁ',83:'ㄴ',68:'ㅇ',70:'ㄹ',71:'ㅎ',72:'ㅗ',74:'ㅓ',75:'ㅏ',76:'ㅣ'};
+    var classes = arr.join(' ');
 
     var points = 0;
     var $pointContainer = $('.points');
@@ -149,7 +149,7 @@ $(function() {
                 }
                 
                 
-                $(this).removeClass(classes+" hide").addClass('idle');
+                $(this).removeClass(classes+' hide').addClass('idle');
             });
             $container.append($elem);
         } else {
@@ -290,7 +290,7 @@ $(function() {
                 $square.removeClass('s-'+keypressed);
             }
             
-            keypressed = arr_keycodes[e.keyCode];
+            keypressed = arrKeycodes[e.keyCode];
             console.log(keypressed);
             
             /*
@@ -346,7 +346,7 @@ $(function() {
         var _class = $(this).attr('class');
         var e = jQuery.Event('keyup');
 
-        e.keyCode = arr_keycodes_mobile(_class);
+        e.keyCode = arrKeycodesMobile(_class);
 
         /*switch (_class) {
             case 'key-left':
