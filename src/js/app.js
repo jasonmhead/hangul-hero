@@ -1,6 +1,11 @@
 'use strict';
 
 $(function() {
+    var arr = ['ㅁ','ㄴ','ㅇ','ㄹ','ㅎ','ㅗ','ㅓ','ㅏ','ㅣ'];
+    var arr_keycodes_mobile = {'ㅁ':65,'ㄴ':83,'ㅇ':68,'ㄹ':70,'ㅎ':71,'ㅗ':72,'ㅓ':74,'ㅏ':75,'ㅣ':76};
+    var arr_keycodes = {65:'ㅁ',83:'ㄴ',68:'ㅇ',70:'ㄹ',71:'ㅎ',72:'ㅗ',74:'ㅓ',75:'ㅏ',76:'ㅣ'};
+    var classes = arr.join(" ");
+
     var points = 0;
     var $pointContainer = $('.points');
     var keypressed = 'key-';
@@ -23,7 +28,7 @@ $(function() {
         {score: 3500, speed: 310, message: '...how?', points: 30, keys: 4},
         {score: 4300, speed: 290, message: 'Don\'t ever stop!!', points: 32, keys: 4},
         {score: 5500, speed: 280, message: 'I\'m really impressed.', points: 35, keys: 4},
-        {score: 7000, speed: 270, message: 'Arrow hero!', points: 40, keys: 4},
+        {score: 7000, speed: 270, message: 'Hangul hero!', points: 40, keys: 4},
         {score: 10000, speed: 260, message: 'You\'re really still here?', points: 40, keys: 4},
         {score: 10500, speed: 250, message: 'That\'s incredible!', points: 40, keys: 4}
     ];
@@ -97,7 +102,9 @@ $(function() {
             return;
         }
 
-        var arr = ['key-right', 'key-left', 'key-down', 'key-up'];
+        //var arr = ['key-right', 'key-left', 'key-down', 'key-up'];
+        // moved to global var
+        
         var direction = arr[Math.floor(Math.random()*current.keys)];
         var $elem = $container.find('.idle').first();
         if ($elem.length <= 0) {
@@ -140,8 +147,9 @@ $(function() {
                 if (currentLife <= 0 && started === 'running') {
                     endGame();
                 }
-
-                $(this).removeClass('key-up key-down key-left key-right').addClass('idle');
+                
+                
+                $(this).removeClass(classes+" hide").addClass('idle');
             });
             $container.append($elem);
         } else {
@@ -226,7 +234,7 @@ $(function() {
         }
         keypressed = '';
 
-        $container.find('.key').removeClass('key-up key-down key-left key-right hide').addClass('idle');
+        $container.find('.key').removeClass(classes+' hide').addClass('idle');
         $('.key-selector-container').addClass('show').removeClass('hide');
         $('.results').addClass('hide').removeClass('show');
         $('.points-container').addClass('show').removeClass('hide');
@@ -248,7 +256,7 @@ $(function() {
         }, 1000);
     }
 
-    $(document).keydown(function(e) {
+    $(document).keyup(function(e) {
 
         if (e.keyCode === 32) {
             e.preventDefault();
@@ -269,7 +277,7 @@ $(function() {
             }
         }
 
-        if (e.keyCode >= 37 && e.keyCode <= 40 && started !== 'paused' && started !== 'restart') {
+        if (e.keyCode >= 60 && e.keyCode <= 90 && started !== 'paused' && started !== 'restart') {
             // arrow keys pressed
 
             e.preventDefault();
@@ -281,6 +289,10 @@ $(function() {
             if (keypressed !== '') {
                 $square.removeClass('s-'+keypressed);
             }
+            
+            keypressed = arr_keycodes[e.keyCode];
+            
+            /*
             switch (e.keyCode) {
                 case 37:
                     keypressed = 'key-left';
@@ -298,6 +310,10 @@ $(function() {
                     keypressed = 'key-down';
                     break;
             }
+            */
+            
+            
+            
             $square.addClass('s-'+keypressed);
         }
 
@@ -325,11 +341,13 @@ $(function() {
         $('.best').fadeIn();
     }
 
-    $mobileControls.find('.key-up, .key-down, .key-left, .key-right').on('touchstart', function() {
+    $mobileControls.find(classes).on('touchstart', function() {
         var _class = $(this).attr('class');
-        var e = jQuery.Event('keydown');
+        var e = jQuery.Event('keyup');
 
-        switch (_class) {
+        e.keyCode = arr_keycodes_mobile(_class);
+
+        /*switch (_class) {
             case 'key-left':
                 e.keyCode = 37;
                 break;
@@ -345,12 +363,12 @@ $(function() {
             case 'key-down':
                 e.keyCode = 40;
                 break;
-        }
+        }*/
 
         $(document).trigger(e);
     });
     $mobileControls.find('.pause-btn').on('touchstart', function() {
-        var e = jQuery.Event('keydown');
+        var e = jQuery.Event('keyup');
         e.keyCode = 32;
         $(document).trigger(e);
     });
