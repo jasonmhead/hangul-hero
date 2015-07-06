@@ -109,7 +109,7 @@ $(function() {
         var direction = arr[Math.floor(Math.random()*current.keys)];
         var $elem = $container.find('.idle').first();
         if ($elem.length <= 0) {
-            $elem = $('<div class="key '+direction+'"></div>');
+            $elem = $('<div class="key key-up'+direction+'"></div>');
             $elem.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
 
                 if (started === 'end' || started === 'restart' || $(this).hasClass('idle')) {
@@ -288,7 +288,7 @@ $(function() {
             }
 
             if (keypressed !== '') {
-                $square.removeClass('s-'+keypressed);
+                $square.removeClass('s-key-up s-'+keypressed);
             }
             
             keypressed = arrKeycodes[e.keyCode];
@@ -314,10 +314,7 @@ $(function() {
             }
             */
             
-            
-            
-            $square.addClass('s-'+keypressed);
-            $square.addClass('s-key-up key-up');
+            $square.addClass('s-key-up s-'+keypressed);
         }
 
     });
@@ -367,7 +364,7 @@ $(function() {
                 e.keyCode = 40;
                 break;
         }*/
-
+        
         $(document).trigger(e);
     });
     $mobileControls.find('.pause-btn').on('touchstart', function() {
