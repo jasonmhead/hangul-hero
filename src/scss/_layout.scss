@@ -113,7 +113,8 @@ body {
         @include key("left");
         border: none;
       }
-      &.s-key-up::after {
+      //&.s-key-up::after {
+      &.s-key-up {
         @include key("up");
         border: none;
       }
@@ -202,7 +203,8 @@ body {
       @include key("left");
     }
 
-    &.key-up::after {
+    //&.key-up::after {
+    &.key-up {
       @include key("up");
     }
 
@@ -280,7 +282,8 @@ body {
           top: $key_size + $helper_spacing;
           right: $key_size + $helper_spacing;
         }
-        &.key-up::after {
+        //&.key-up::after {
+        &.key-up {
           top: 0;
         }
         &.key-down::after {
