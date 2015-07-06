@@ -5,6 +5,8 @@ $(function() {
     var arrKeycodesMobile = {'ㅁ':65,'ㄴ':83,'ㅇ':68,'ㄹ':70,'ㅎ':71,'ㅗ':72,'ㅓ':74,'ㅏ':75,'ㅣ':76};
     var arrKeycodes = {65:'ㅁ',83:'ㄴ',68:'ㅇ',70:'ㄹ',71:'ㅎ',72:'ㅗ',74:'ㅓ',75:'ㅏ',76:'ㅣ'};
     var classes = arr.join(' ');
+    
+    $('.key.key-right::after').css('content','tttt');
 
     var points = 0;
     var $pointContainer = $('.points');
