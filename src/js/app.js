@@ -109,7 +109,7 @@ $(function() {
         var direction = arr[Math.floor(Math.random()*current.keys)];
         var $elem = $container.find('.idle').first();
         if ($elem.length <= 0) {
-            $elem = $('<div class="key key-up'+direction+'"></div>');
+            $elem = $('<div class="key key-up s-key-up '+direction+'"></div>');
             $elem.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
 
                 if (started === 'end' || started === 'restart' || $(this).hasClass('idle')) {
