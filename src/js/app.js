@@ -109,11 +109,9 @@ $(function() {
         var direction = arr[Math.floor(Math.random()*arr.length)];
         var $elem = $container.find('.idle').first();
         if ($elem.length <= 0) {
-            $elem = $('<div class="key key-up hangul-key '+direction+'"></div>');
+            $elem = $('<div class="key key-up hangul-key '+direction+'">'+direction+'</div>');
             $elem.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
 
-            // display Hangul character
-            $('.hangul-key, .key-selector').html(direction);
 
                 if (started === 'end' || started === 'restart' || $(this).hasClass('idle')) {
                     return;
