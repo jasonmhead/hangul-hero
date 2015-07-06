@@ -6,7 +6,7 @@ $(function() {
     var arrKeycodes = {65:'ㅁ',83:'ㄴ',68:'ㅇ',70:'ㄹ',71:'ㅎ',72:'ㅗ',74:'ㅓ',75:'ㅏ',76:'ㅣ'};
     var classes = arr.join(' ');
     
-    $('.key.key-right::after').css('content','tttt');
+    $('.container .key.key-right::after').css('content','right');
 
     var points = 0;
     var $pointContainer = $('.points');
