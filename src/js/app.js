@@ -113,7 +113,7 @@ $(function() {
             $elem.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
 
             // display Hangul character
-            $(".hangul-key").html(direction);
+            $('.hangul-key').html(direction);
 
                 if (started === 'end' || started === 'restart' || $(this).hasClass('idle')) {
                     return;
