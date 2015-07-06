@@ -114,7 +114,7 @@ body {
         border: none;
       }
       &.s-key-up::after {
-        //@include key("up");
+        @include key("up");
         border: none;
       }
       &.s-key-right::after {
@@ -203,7 +203,7 @@ body {
     }
 
     &.key-up::after {
-      //@include key("up");
+      @include key("up");
     }
 
     &.key-right::after {
@@ -504,10 +504,10 @@ body {
     .key-up {
       display: inline-block;
 
-      //&::after {
-      //  @include key("up", $key_size+15px);
-      //  position: relative;
-      //}
+      &::after {
+        @include key("up", $key_size+15px);
+        position: relative;
+      }
     }
   }
 
