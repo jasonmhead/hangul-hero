@@ -455,7 +455,7 @@ body {
     display: inline-block;
 
     &::after {
-      @include key("up", 21px, 2px, 0);
+      @include key("upty", 21px, 2px, 0);
       position: relative;
     }
   }
@@ -505,7 +505,7 @@ body {
       display: inline-block;
 
       &::after {
-        @include key("up", $key_size+15px);
+        @include key("upty", $key_size+15px);
         position: relative;
       }
     }
