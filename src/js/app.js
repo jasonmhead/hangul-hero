@@ -106,7 +106,7 @@ $(function() {
         //var arr = ['key-right', 'key-left', 'key-down', 'key-up'];
         // moved to global var
         
-        var direction = arr[Math.floor(Math.random()*current.keys)];
+        var direction = arr[Math.round(Math.random()*current.keys)];
         console.log(Math.floor(Math.random()*current.keys)); // test line
         var $elem = $container.find('.idle').first();
         if ($elem.length <= 0) {
