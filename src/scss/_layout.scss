@@ -109,7 +109,7 @@ body {
         opacity: 0.8;
       }
 
-      &.s-key-left {
+      &.s-key-left::after {
         @include key("left");
         border: none;
       }
@@ -118,11 +118,11 @@ body {
         @include key("up");
         border: none;
       }
-      &.s-key-right {
+      &.s-key-right::after {
         @include key("right");
         border: none;
       }
-      &.s-key-down {
+      &.s-key-down::after {
         @include key("down");
         border: none;
       }
@@ -199,7 +199,7 @@ body {
       opacity: 0;
     }
 
-    &.key-left {
+    &.key-left::after {
       @include key("left");
     }
 
@@ -208,11 +208,11 @@ body {
       @include key("up");
     }
 
-    &.key-right {
+    &.key-right::after {
       @include key("right");
     }
 
-    &.key-down {
+    &.key-down::after {
       @include key("down");
     }
 
@@ -278,18 +278,18 @@ body {
           animation: lowbump 0.8s infinite ease-out;
         }
 
-        &.key-left {
+        &.key-left::after {
           top: $key_size + $helper_spacing;
           right: $key_size + $helper_spacing;
         }
-
+        //&.key-up::after {
         &.key-up {
           top: 0;
         }
-        &.key-down {
+        &.key-down::after {
           top: $key_size + $helper_spacing;
         }
-        &.key-right {
+        &.key-right::after {
           top: $key_size + $helper_spacing;
           right: 0;
           left: $key_size + $helper_spacing;
@@ -456,8 +456,7 @@ body {
 
   .key-up {
     display: inline-block;
-    background-color: white;
-    
+
     &::after {
       @include key("up", 21px, 2px, 0);
       position: relative;
@@ -530,18 +529,18 @@ body {
     .key-down {
       display: inline-block;
 
-      //&::after {
+      &::after {
         @include key("down", $key_size+15px);
         position: relative;
-      //}
+      }
     }
     .key-right {
       display: inline-block;
 
-      //&::after {
+      &::after {
         @include key("right", $key_size+15px);
         position: relative;
-      //}
+      }
     }
   }
 
