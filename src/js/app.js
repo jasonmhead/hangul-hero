@@ -317,7 +317,7 @@ $(function() {
             
             
             $square.addClass('s-'+keypressed);
-            $square.addClass('s-key-up');
+            $square.addClass('s-key-up key-up');
         }
 
     });
